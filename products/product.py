@@ -1,4 +1,5 @@
 from abc import ABC, abstractmethod
+from food_package import *
 #Write your code here
 
 class Product(ABC):
@@ -26,13 +27,31 @@ class Hamburger(Product):
         return Wrapping()
         
 class Soda(Product):
+    def __init__(self,id:str,name:str,price:float):
+        super().__init__(id,name,price)
+    def type(self) -> str:
+        return "soda"
+    def foodPackage(self) -> FoodPackage:
+        return Bottle()
     #Write your code here
     pass
 
 class Drink(Product):
     #Write your code here
+    def __init__(self,id:str,name:str,price:float):
+        super().__init__(id,name,price)
+    def type(self) -> str:
+        return "Drink"
+    def foodPackage(self) -> FoodPackage:
+        return Glass()
     pass
 
 class HappyMeal(Product):
     #Write your code here
+    def __init__(self,id:str,name:str,price:float):
+        super().__init__(id,name,price)
+    def type(self) -> str:
+        return "HappyMeal"
+    def foodPackage(self) -> FoodPackage:
+        return Box()
     pass

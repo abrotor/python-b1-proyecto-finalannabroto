@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 #Write your code here
 
-class FoodPackage (ABC): 
+class FoodPackage(ABC): 
     @abstractmethod
     def pack(self)  -> str:
         pass
@@ -23,14 +23,22 @@ class Bottle(FoodPackage):
   def pack(self):
     return "Bottle" 
   def material(self):
-    return "Plastic"
+    return "Glass"
   #Write your code here
   pass
       
-class Glass(FoodPackage):  
+class Glass(FoodPackage):
+  def pack(self):
+    return "Glass" 
+  def material(self):
+    return "Cardboard"
   #Write your code here
   pass
 
-class Box(FoodPackage):  
+class Box(FoodPackage): 
+  def pack(self):
+    return "Box" 
+  def material(self):
+    return "Cardboard"
   #Write your code here
   pass

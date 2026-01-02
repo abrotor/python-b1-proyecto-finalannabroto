@@ -12,6 +12,9 @@ class User(ABC):
 
 class Cashier(User): 
   def __init__(self,dni:str,name:str,age:int,timeTable:str,salary:float):
+    super().__init__(dni,name,age)
+    self.timeTable = timeTable
+    self.salary = salary
     #Write your code here
     pass      
  
@@ -20,9 +23,11 @@ class Cashier(User):
 
 class Customer(User):
   def __init__(self,dni:str,name:str,age:int,email:str,postalCode:str):
+    super().__init__(dni,name,age)
+    self.email = email
+    self.postalCode = postalCode
     #Write your code here
     pass
-
 
   def describe(self):
         return f"Customer - Name: {self.name}, DNI: {self.dni} , Age: {self.age}, Email: {self.email}, Postal Code: {self.postalCode}"
