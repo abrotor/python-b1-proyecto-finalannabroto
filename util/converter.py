@@ -1,16 +1,19 @@
 from abc import ABC, abstractmethod
+from file_manager import *
 #Write your code here
 
 class Converter(ABC):
   @abstractmethod
   def convert(self,dataFrame,*args) -> list:
-      pass  
+      pass 
   def print(self, objects):
     for item in objects:
-      print(item.describe())
+      print(item.describe(self, list))
 
 class CashierConverter(Converter):
   def convert(self,dataFrame):    
+    super().__init__(dataFrame)
+
     #Write your code here
     pass
 
