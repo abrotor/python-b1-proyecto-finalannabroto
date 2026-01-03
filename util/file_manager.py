@@ -5,8 +5,7 @@ class CSVFileManager:
   def __init__(self,path: str):
     self.path = path
   def read(self) -> str:
-    dataFrame = pd.read_csv(self.path)  
-    return dataFrame
+    return pd.read_csv(self.path)  
   def write(self,dataFrame):
     self.dataFrame = dataFrame
 
