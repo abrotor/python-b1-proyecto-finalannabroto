@@ -8,7 +8,7 @@ class Order:
     self.products = []
 
   def add(self, product : Product):
-    self.product = product
+    
     #Write your code here
     pass
 
@@ -23,4 +23,4 @@ class Order:
       print(product.describe())
     print(f"Total price : {self.calculateTotal()}")
 
-print(Order.show(self))
+

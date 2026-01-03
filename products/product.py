@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from food_package import *
+from food_package import FoodPackage
 #Write your code here
 
 class Product(ABC):

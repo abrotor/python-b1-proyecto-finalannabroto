@@ -1,10 +1,6 @@
 from abc import ABC, abstractmethod
 from file_manager import *
-import os, sys
 
-sys.path.insert(1, "/".join(os.path.realpath(__file__).split("/")[0:-2]) + "/lib")
-
-import user
 
 
 #Write your code here

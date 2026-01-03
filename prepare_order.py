@@ -103,9 +103,14 @@ f.	Agregar productos: Utilizar la instancia la clase 'Order', del paso c y llama
 """
 #Write your code here
 from users import *
+from data import *
+from orders import *
+from util import *
+from products import *
 
     
 class PrepareOrder:
  #Write your code here
+ df_cashiers = CSVFileManager("ruta/cashier.csv").read()
  pass
 
