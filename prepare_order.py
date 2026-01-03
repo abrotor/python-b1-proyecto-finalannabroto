@@ -113,3 +113,4 @@ class PrepareOrder:
  df_cashiers = CSVFileManager("ruta/cashier.csv").read()
  pass
 
+print("hola")

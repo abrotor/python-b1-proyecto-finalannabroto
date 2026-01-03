@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from file_manager import *
+from file_manager import CSVFileManager
 
 
 
