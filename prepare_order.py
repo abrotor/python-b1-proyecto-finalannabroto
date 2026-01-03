@@ -140,13 +140,16 @@ class Converter(ABC):
       print(item.describe(self, list))
   
 class CashierConverter(Converter): 
-  def convert(self,dataFrame) -> list:    
-    self.dataFrame = dataFrame   
-    my_list = []
+  def convert(dataFrame) -> list:  
+    cashier_list = [] 
     for row in dataFrame:
-        my_list.append(Cashier(dni=[1], name = [0], age = [2], timeTable = [3], salary = [4]))
-    return my_list
+        cashier_list.append(Cashier(name= 'name', dni = row(2), age = [2], timeTable = [3], salary = [4]))
+    return cashier_list
 
-my_list = CashierConverter.convert(dataFrame)
-print(Cashier.describe(my_list))
+#cashier_list = CashierConverter.convert(dataFrame)
+#print(cashier_list)
+for x in CashierConverter.convert(dataFrame):
+   print(Cashier.describe(x))
 
+#print(Cashier.describe(cashier_list))(Cashier(dni=row[1], name = row[0], age = row[2], timeTable = row[3], salary = row[4]))
+#cashier_list.append(Cashier(dni=x[1], name = x[0], age = x[2], timeTable = x[3], salary = x[4]))
