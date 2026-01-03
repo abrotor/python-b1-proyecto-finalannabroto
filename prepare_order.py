@@ -106,12 +106,47 @@ from users import *
 from data import *
 from util import *
 from products import *
+from abc import ABC, abstractmethod
 
-    
-class PrepareOrder:
- #Write your code here
- df_cashiers = CSVFileManager("data\cashiers.csv").read()
- print(df_cashiers)
+df_cashiers = CSVFileManager("data\cashiers.csv").read()
+dataFrame = df_cashiers
+print(df_cashiers)
 
- pass
+class User(ABC):
+  def __init__(self,dni:str,name:str,age:int):
+    self.dni = dni
+    self.name = name
+    self.age = age  
+
+  @abstractmethod
+  def describe(self):
+      pass
+
+class Cashier(User): 
+  def __init__(self,dni:str,name:str,age:int,timeTable:str,salary:float):
+    super().__init__(dni,name,age)
+    self.timeTable = timeTable
+    self.salary = salary
+
+  def describe(self):
+        return f"Cashier - Name: {self.name}, DNI: {self.dni} , Timetable: {self.timeTable}, Salary: {self.salary}."
+
+class Converter(ABC):
+  @abstractmethod
+  def convert(self,dataFrame,*args) -> list:
+      pass 
+  def print(self, objects):
+    for item in objects:
+      print(item.describe(self, list))
+  
+class CashierConverter(Converter): 
+  def convert(self,dataFrame) -> list:    
+    self.dataFrame = dataFrame   
+    my_list = []
+    for row in dataFrame:
+        my_list.append(Cashier(dni=[1], name = [0], age = [2], timeTable = [3], salary = [4]))
+    return my_list
+
+my_list = CashierConverter.convert(dataFrame)
+print(Cashier.describe(my_list))
 
