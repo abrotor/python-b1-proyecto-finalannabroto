@@ -16,10 +16,10 @@ class Converter(ABC):
       print(item.describe(self, list))
 
 class CashierConverter(Converter): 
-  def convert(dataFrame):    
+  def convert(dataFrame, numberofcashiers):    
     cashier_list = [] 
     x = 0
-    for x in range (0, 5):
+    for x in range (0, numberofcashiers):
         cashier_list.append(Cashier(name= dataFrame.at[x, 'name'], dni = dataFrame.at[x, 'dni'], age = dataFrame.at[x, 'age'], timeTable = dataFrame.at[x, 'timetable'], salary = dataFrame.at[x, 'salary']))
         x = x + 1         
     return cashier_list

@@ -1,0 +1,27 @@
+List of products:
+ 
+List of hamburgers:
+Product - Type: Hamburguesa, Name: Mc Bacon, Id: H1 , Price: 10.8 , Empaque: Food Wrap Paper , Material: Aluminium.
+Product - Type: Hamburguesa, Name: Super Delux, Id: H2 , Price: 15.6 , Empaque: Food Wrap Paper , Material: Aluminium.
+Product - Type: Hamburguesa, Name: Strip Pollo, Id: H3 , Price: 9.77 , Empaque: Food Wrap Paper , Material: Aluminium.
+Product - Type: Hamburguesa, Name: Mega Tocino, Id: H4 , Price: 12.4 , Empaque: Food Wrap Paper , Material: Aluminium.
+Product - Type: Hamburguesa, Name: Vegana, Id: H5 , Price: 7.3 , Empaque: Food Wrap Paper , Material: Aluminium.
+ 
+List of happymeals:
+Product - Type: HappyMeal, Name: Avengers, Id: HM1 , Price: 5.5 , Empaque: Box , Material: Cardboard.
+Product - Type: HappyMeal, Name: Disney, Id: HM2 , Price: 7.6 , Empaque: Box , Material: Cardboard.
+Product - Type: HappyMeal, Name: Rugrats, Id: HM3 , Price: 4.35 , Empaque: Box , Material: Cardboard.
+ 
+List of drinks:
+Product - Type: Drink, Name: Te, Id: B1 , Price: 1.0 , Empaque: Glass , Material: Cardboard.
+Product - Type: Drink, Name: Sun Te, Id: B2 , Price: 1.1 , Empaque: Glass , Material: Cardboard.
+Product - Type: Drink, Name: Coca Cola, Id: B3 , Price: 0.8 , Empaque: Glass , Material: Cardboard.
+Product - Type: Drink, Name: Fanta, Id: B4 , Price: 1.1 , Empaque: Glass , Material: Cardboard.
+Product - Type: Drink, Name: Nevado, Id: B5 , Price: 1.75 , Empaque: Glass , Material: Cardboard.
+ 
+List of sodas:
+Product - Type: soda, Name: Coca Cola, Id: G1 , Price: 1.5 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Fanta, Id: G2 , Price: 1.1 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Seven Up, Id: G3 , Price: 1.1 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Sprite, Id: G4 , Price: 1.0 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Pepsi, Id: G5 , Price: 1.5 , Empaque: Bottle , Material: Glass.

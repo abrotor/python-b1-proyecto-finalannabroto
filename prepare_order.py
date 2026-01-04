@@ -106,9 +106,13 @@ from data import *
 from util import *
 from products import *
 
+# 1. Convertir a llistes d’objectes.
+
+print("List of users:")
 
 df_cashiers = CSVFileManager("data\cashiers.csv").read()
-cashier_list = CashierConverter.convert(df_cashiers)
+numberofcashiers = 5
+cashier_list = CashierConverter.convert(df_cashiers, numberofcashiers)
 print("List of cashiers:")
 CashierConverter.print(cashier_list)
 
@@ -116,6 +120,8 @@ df_customers = CSVFileManager("data\customers.csv").read()
 customers_list = CustomerConverter.convert(df_customers)
 print("List of customers:")
 CustomerConverter.print(customers_list)
+
+CSVFileManager.writeusers(cashier_list, "cashiers", customers_list, "customer")
 
 print("List of producta:")
 
@@ -146,19 +152,17 @@ numberofsodas = 5
 sodas_list = ProductConverter.convert(df_drinks, numberofsodas, Soda)
 print("List of sodas:")
 ProductConverter.print(sodas_list)
-CSVFileManager.write(sodas_list, "sodas")
 
-#df_columnas_selectas = dataFrame[['name', 'age']]
-#print(df_columnas_selectas)
-#for x, y in dataFrame.items():
-  #print(x)
-  #print(y)
-#print(dataFrame.iloc[0])
-#print(dataFrame.at[0, 'name'])
-#cashier_list = CashierConverter.convert(dataFrame)
-#print(cashier_list)
-#for z in CashierConverter.convert(dataFrame):
-   #print(Cashier.describe(z))
+CSVFileManager.writeproducts(hamburgers_list, "hamburgers", happymeals_list, "happymeals", drinks_list, "drinks",  sodas_list, "sodas")
 
-#print(Cashier.describe(cashier_list))(Cashier(dni=row[1], name = row[0], age = row[2], timeTable = row[3], salary = row[4]))
-#cashier_list.append(Cashier(dni=x[1], name = x[0], age = x[2], timeTable = x[3], salary = x[4]))
+# 2. Preparar una comanda.
+
+
+
+dni_chasier = int(input('Introdueix DNI del caixer: '))
+df_caixer_a = df_cashiers[df_cashiers["dni"] == dni_chasier]
+df_caixer_a.index = [0]
+cashier = CashierConverter.convert(df_caixer_a, 1)
+CashierConverter.print(cashier)
+
+

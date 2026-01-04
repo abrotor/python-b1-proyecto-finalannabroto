@@ -1,0 +1,15 @@
+List of users:
+ 
+List of cashiers:
+Cashier - Name: Mia, DNI: 5001 , Timetable: 09:00-15:00, Salary: 800.0.
+Cashier - Name: Sinthy, DNI: 5002 , Timetable: 09:00-14:00, Salary: 750.6.
+Cashier - Name: Carles, DNI: 5003 , Timetable: 11:00-17:00, Salary: 655.3.
+Cashier - Name: Carlos, DNI: 5004 , Timetable: 11:00-17:00, Salary: 655.3.
+Cashier - Name: Elena, DNI: 5005 , Timetable: 08:00-17:00, Salary: 997.8.
+ 
+List of customer:
+Customer - Name: Mike, DNI: 1001 , Age: 37, Email: mike@uoc.edu, Postal Code: 28009
+Customer - Name: Montse, DNI: 1002 , Age: 28, Email: montse@uoc.edu, Postal Code: 27009
+Customer - Name: Eloi, DNI: 2001 , Age: 19, Email: eloi@uoc.edu, Postal Code: 26009
+Customer - Name: Leyre, DNI: 2002 , Age: 27, Email: leyre@uoc.edu, Postal Code: 28009
+Customer - Name: Javier, DNI: 3001 , Age: 20, Email: javier@uoc.edu, Postal Code: 26009

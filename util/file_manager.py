@@ -1,20 +1,66 @@
 import pandas as pd
 from products import *
+from users import *
 
 
 class CSVFileManager:
   def __init__(self,path: str):
     self.path = path
+
   def read(self) -> str:
-    return pd.read_csv(self.path)  
-  def write(product_list, product):
-    with open('llistas.txt','w') as f: 
+    return pd.read_csv(self.path) 
+  
+  
+  def writeusers(cashiers_list, cashiers, customer_list, customer):
+    with open('llista_users.txt','w') as f: 
+      f.write("List of users:\n")
+      f.write(" \n")
       f.write("List of ")
-      f.write(product)
+      f.write(cashiers)
       f.write(":\n")
-      for z in product_list:
+      for z in cashiers_list:
+        f.write(Cashier.describe(z))
+        f.write("\n")
+      f.write(" \n")
+      f.write("List of ")
+      f.write(customer)
+      f.write(":\n")
+      for z in customer_list:
+        f.write(Customer.describe(z))
+        f.write("\n")
+
+  def writeproducts(hamburgers_list, hamburgers, happymeals_list, happymeals, drinks_list, drinks,  sodas_list, sodas):
+    with open('llista_productes.txt','w') as f: 
+      f.write("List of products:\n")
+      f.write(" \n")
+      f.write("List of ")
+      f.write(hamburgers)
+      f.write(":\n")
+      for z in hamburgers_list:
         f.write(Product.describe(z))
         f.write("\n")
+      f.write(" \n")
+      f.write("List of ")
+      f.write(happymeals)
+      f.write(":\n")
+      for z in happymeals_list:
+        f.write(Product.describe(z))
+        f.write("\n")
+      f.write(" \n")
+      f.write("List of ")
+      f.write(drinks)
+      f.write(":\n")
+      for z in drinks_list:
+        f.write(Product.describe(z))
+        f.write("\n")
+      f.write(" \n")
+      f.write("List of ")
+      f.write(sodas)
+      f.write(":\n")
+      for z in sodas_list:
+        f.write(Product.describe(z))
+        f.write("\n")
+      
 
 
 pass
