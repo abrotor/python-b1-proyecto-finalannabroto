@@ -45,13 +45,13 @@ class ProductConverter(Converter):
   def convert(dataFrame):    
     hamburgers_list = [] 
     x = 0
-    for x in range (0, 5):
-        hamburgers_list.append(Hamburger(id = dataFrame.at[x, 'id'], name = dataFrame.at[x, 'name'], price = dataFrame.at[x, 'price']))
+    for x in range (0, 2):
+        hamburgers_list.append(product(id = dataFrame.at[x, 'id'], name = dataFrame.at[x, 'name'], price = dataFrame.at[x, 'price']))
         x = x + 1         
     return hamburgers_list
   def print(hamburgers_list):
     for z in hamburgers_list:
-        print(Hamburger.describe(z))
+        print(Product.describe(z))
 
 
 
