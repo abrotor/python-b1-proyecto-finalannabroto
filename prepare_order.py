@@ -126,9 +126,9 @@ ProductConverter.print(hamburgers_list)
 df_happymeals = CSVFileManager("data\happyMeal.csv").read()
 print(df_happymeals)
 product = HappyMeal
-happymeals_list = ProductConverter.convert(df_happymeals)
-print("List of Happy Meals:")
-ProductConverter.print(happymeals_list)
+#happymeals_list = ProductConverter.convert(df_happymeals)
+#print("List of Happy Meals:")
+#ProductConverter.print(happymeals_list)
 
 
 #df_columnas_selectas = dataFrame[['name', 'age']]
