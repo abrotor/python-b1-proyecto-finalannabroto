@@ -101,7 +101,6 @@ f.	Agregar productos: Utilizar la instancia la clase 'Order', del paso c y llama
 
 
 """
-#Write your code here
 from users import *
 from data import *
 from util import *
@@ -110,17 +109,34 @@ from products import *
 
 df_cashiers = CSVFileManager("data\cashiers.csv").read()
 cashier_list = CashierConverter.convert(df_cashiers)
+print("List of cashiers:")
 CashierConverter.print(cashier_list)
 
 df_customers = CSVFileManager("data\customers.csv").read()
-print(df_customers)
-
-
-
-
-
 customers_list = CustomerConverter.convert(df_customers)
+print("List of customers:")
 CustomerConverter.print(customers_list)
+
+df_hamburgers = CSVFileManager("data\hamburgers.csv").read()
+print(df_hamburgers)
+
+class ProductConverter(Converter):
+  def convert(dataFrame):    
+    customer_list = [] 
+    x = 0
+    for x in range (0, 5):
+        customer_list.append(Product(id = dataFrame.at[x, 'id'], name = dataFrame.at[x, 'name'], price = dataFrame.at[x, 'price']))
+        x = x + 1         
+    return customer_list
+  def print(customer_list):
+    for z in customer_list:
+        print(Product.describe(z))
+        
+hamburgers_list = ProductConverter.convert(df_hamburgers)
+print("List of hamburgers:")
+ProductConverter.print(hamburgers_list)
+
+
 #df_columnas_selectas = dataFrame[['name', 'age']]
 #print(df_columnas_selectas)
 #for x, y in dataFrame.items():
