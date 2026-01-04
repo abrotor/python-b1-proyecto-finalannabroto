@@ -6,8 +6,10 @@ class CSVFileManager:
     self.path = path
   def read(self) -> str:
     return pd.read_csv(self.path)  
-  def write(self,dataFrame):
-    self.dataFrame = dataFrame
+  def write(dataFrame):
+    with open('llista_info.txt','w') as f: 
+      f.write('Hola, mundo!')
 
-    pass
+
+pass
 
