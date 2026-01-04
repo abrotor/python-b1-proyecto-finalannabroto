@@ -117,10 +117,6 @@ customers_list = CustomerConverter.convert(df_customers)
 print("List of customers:")
 CustomerConverter.print(customers_list)
 
-
-
-
-
 print("List of producta:")
 
 df_hamburgers = CSVFileManager("data\hamburgers.csv").read()
