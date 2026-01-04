@@ -174,7 +174,7 @@ df_customer_a.index = [0]
 customer = CustomerConverter.convert(df_customer_a, 1)
 CustomerConverter.print(customer)
 
-products = []
+
 class Order:
 
   def __init__(self, cashier:Cashier, customer:Customer):
@@ -182,8 +182,7 @@ class Order:
     self.customer = customer
     self.products = []
 
-  def add(df_producte_nou):
-
+  def add(products, df_producte_nou):
     products = products + df_producte_nou
 
     return products
@@ -210,9 +209,10 @@ df_productes = pd.concat([df_hamburgers, df_happymeals, df_drinks, df_sodas])
 id_producte = str(input('Introdueix l’identificador del producte: '))
 df_producte_nou = df_productes[df_productes["id"] == id_producte]
 df_producte_nou.index = [0]
-producte = ProductConverter.convert(df_producte_nou, 1, product)
-ProductConverter.print(producte)
-ProductConverter.print(Order.add(producte))
+producte_nou = ProductConverter.convert(df_producte_nou, 1, product)
+ProductConverter.print(producte_nou)
+products = []
+ProductConverter.print(Order.add(products, producte_nou))
 
 more = str(input('Vols afegir un altre producte?:'))
 
@@ -220,9 +220,10 @@ while more == "YES":
   id_producte = str(input('Introdueix l’identificador del producte: '))
   df_producte_nou = df_productes[df_productes["id"] == id_producte]
   df_producte_nou.index = [0]
-  producte = ProductConverter.convert(df_producte_nou, 1, product)
-  ProductConverter.print(producte)
-  ProductConverter.print(Order.add(producte))
+  producte_nou = ProductConverter.convert(df_producte_nou, 1, product)
+  ProductConverter.print(producte_nou)
+  products = Order.add(products, producte_nou)
+  ProductConverter.print(Order.add(products, producte_nou))
   more = str(input('Vols afegir un altre producte?:'))
 
 
