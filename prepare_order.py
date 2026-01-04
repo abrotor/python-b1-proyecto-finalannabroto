@@ -174,16 +174,20 @@ df_customer_a.index = [0]
 customer = CustomerConverter.convert(df_customer_a, 1)
 CustomerConverter.print(customer)
 
-
+products = []
 class Order:
+
   def __init__(self, cashier:Cashier, customer:Customer):
     self.cashier = cashier
     self.customer = customer
     self.products = []
 
-  def add(self, product : Product):
-    self.product = product
-    
+  def add(df_producte_nou):
+
+    products = products + df_producte_nou
+
+    return products
+
     
     #Write your code here
     pass
@@ -200,15 +204,29 @@ ProductConverter.print(sodas_list)
 
 #Escollir productes
 
-df_producte = pd.concat([df_hamburgers, df_happymeals, df_drinks, df_sodas])
+df_productes = pd.concat([df_hamburgers, df_happymeals, df_drinks, df_sodas])
+
 
 id_producte = str(input('Introdueix l’identificador del producte: '))
-df_producte_a = df_producte[df_producte["id"] == id_producte]
-print(df_producte_a)
-df_producte_a.index = [0]
-print(df_producte_a)
-producte = ProductConverter.convert(df_producte_a, 1, product)
+df_producte_nou = df_productes[df_productes["id"] == id_producte]
+df_producte_nou.index = [0]
+producte = ProductConverter.convert(df_producte_nou, 1, product)
 ProductConverter.print(producte)
+ProductConverter.print(Order.add(producte))
+
+more = str(input('Vols afegir un altre producte?:'))
+
+while more == "YES":
+  id_producte = str(input('Introdueix l’identificador del producte: '))
+  df_producte_nou = df_productes[df_productes["id"] == id_producte]
+  df_producte_nou.index = [0]
+  producte = ProductConverter.convert(df_producte_nou, 1, product)
+  ProductConverter.print(producte)
+  ProductConverter.print(Order.add(producte))
+  more = str(input('Vols afegir un altre producte?:'))
+
+
+
 
 
 
