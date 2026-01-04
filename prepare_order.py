@@ -119,9 +119,9 @@ CustomerConverter.print(customers_list)
 
 df_hamburgers = CSVFileManager("data\hamburgers.csv").read()
 product = Hamburger
-hamburgers_list = ProductConverter.convert(df_hamburgers)
+product_list = ProductConverter.convert(df_hamburgers)
 print("List of hamburgers:")
-ProductConverter.print(hamburgers_list)
+ProductConverter.print(product_list)
 
 df_happymeals = CSVFileManager("data\happyMeal.csv").read()
 print(df_happymeals)
