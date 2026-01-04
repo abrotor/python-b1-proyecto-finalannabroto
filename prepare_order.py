@@ -113,24 +113,6 @@ df_cashiers = CSVFileManager("data\cashiers.csv").read()
 dataFrame = df_cashiers
 print(df_cashiers)
 
-class User(ABC):
-  def __init__(self,dni:str,name:str,age:int):
-    self.dni = dni
-    self.name = name
-    self.age = age  
-
-  @abstractmethod
-  def describe(self):
-      pass
-
-class Cashier(User): 
-  def __init__(self,dni:str,name:str,age:int,timeTable:str,salary:float):
-    super().__init__(dni,name,age)
-    self.timeTable = timeTable
-    self.salary = salary
-
-  def describe(self):
-        return f"Cashier - Name: {self.name}, DNI: {self.dni} , Timetable: {self.timeTable}, Salary: {self.salary}."
 
 class Converter(ABC):
   @abstractmethod
