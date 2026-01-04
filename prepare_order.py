@@ -106,6 +106,7 @@ from users import *
 from data import *
 from util import *
 from products import *
+
 from abc import ABC, abstractmethod
 
 df_cashiers = CSVFileManager("data\cashiers.csv").read()
@@ -142,14 +143,22 @@ class Converter(ABC):
 class CashierConverter(Converter): 
   def convert(dataFrame) -> list:  
     cashier_list = [] 
-    for row in dataFrame:
-        cashier_list.append(Cashier(name= 'name', dni = row(2), age = [2], timeTable = [3], salary = [4]))
+    x = 0
+    for x in range (0, 5):
+        cashier_list.append(Cashier(name= dataFrame.at[x, 'name'], dni = dataFrame.at[x, 'dni'], age = dataFrame.at[x, 'age'], timeTable = dataFrame.at[x, 'timetable'], salary = dataFrame.at[x, 'salary']))
+        x = x + 1         
     return cashier_list
-
+#df_columnas_selectas = dataFrame[['name', 'age']]
+#print(df_columnas_selectas)
+#for x, y in dataFrame.items():
+  #print(x)
+  #print(y)
+#print(dataFrame.iloc[0])
+#print(dataFrame.at[0, 'name'])
 #cashier_list = CashierConverter.convert(dataFrame)
 #print(cashier_list)
-for x in CashierConverter.convert(dataFrame):
-   print(Cashier.describe(x))
+for z in CashierConverter.convert(dataFrame):
+   print(Cashier.describe(z))
 
 #print(Cashier.describe(cashier_list))(Cashier(dni=row[1], name = row[0], age = row[2], timeTable = row[3], salary = row[4]))
 #cashier_list.append(Cashier(dni=x[1], name = x[0], age = x[2], timeTable = x[3], salary = x[4]))
