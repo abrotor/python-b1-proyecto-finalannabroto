@@ -121,28 +121,30 @@ df_hamburgers = CSVFileManager("data\hamburgers.csv").read()
 
 
 class ProductConverter(Converter):
-  def convert(dataFrame):    
-    hamburgers_list = [] 
+  def convert(dataFrame, numberofproducts):    
+    product_list = [] 
     x = 0
-    for x in range (0, 5):
-        hamburgers_list.append(product(id = dataFrame.at[x, 'id'], name = dataFrame.at[x, 'name'], price = dataFrame.at[x, 'price']))
+    for x in range (0, numberofproducts):
+        product_list.append(product(id = dataFrame.at[x, 'id'], name = dataFrame.at[x, 'name'], price = dataFrame.at[x, 'price']))
         x = x + 1         
-    return hamburgers_list
-  def print(hamburgers_list):
-    for z in hamburgers_list:
+    return product_list
+  def print(product_list):
+    for z in product_list:
         print(Product.describe(z))
 
 product = Hamburger
-hamburgers_list = ProductConverter.convert(df_hamburgers)
+numberofproducts = 5
+hamburgers_list = ProductConverter.convert(df_hamburgers, numberofproducts)
 print("List of hamburgers:")
 ProductConverter.print(hamburgers_list)
 
-#df_happymeals = CSVFileManager("data\happyMeal.csv").read()
-#print(df_happymeals)
-#product = HappyMeal
-#happymeals_list = ProductConverter.convert(df_happymeals)
-#print("List of Happy Meals:")
-#ProductConverter.print(happymeals_list)
+df_happymeals = CSVFileManager("data\happyMeal.csv").read()
+print(df_happymeals)
+product = HappyMeal
+numberofproducts = 3
+happymeals_list = ProductConverter.convert(df_happymeals, numberofproducts)
+print("List of Happy Meals:")
+ProductConverter.print(happymeals_list)
 
 
 #df_columnas_selectas = dataFrame[['name', 'age']]
