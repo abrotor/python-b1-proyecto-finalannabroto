@@ -114,10 +114,13 @@ CashierConverter.print(cashier_list)
 
 df_customers = CSVFileManager("data\customers.csv").read()
 print(df_customers)
+
+
+
+
+
 customers_list = CustomerConverter.convert(df_customers)
-#CustomerConverter.print(customers_list)
-
-
+CustomerConverter.print(customers_list)
 #df_columnas_selectas = dataFrame[['name', 'age']]
 #print(df_columnas_selectas)
 #for x, y in dataFrame.items():

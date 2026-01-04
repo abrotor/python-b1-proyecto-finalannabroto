@@ -28,8 +28,17 @@ class CashierConverter(Converter):
     pass
 
 class CustomerConverter(Converter):
-  #Write your code here
-  pass
+  def convert(dataFrame):    
+    customer_list = [] 
+    x = 0
+    for x in range (0, 5):
+        customer_list.append(Customer(name = dataFrame.at[x, 'name'], dni = dataFrame.at[x, 'dni'], age = dataFrame.at[x, 'age'], email = dataFrame.at[x, 'email'], postalCode = dataFrame.at[x, 'postalcode']))
+        x = x + 1         
+    return customer_list
+  def print(customer_list):
+    for z in customer_list:
+        print(Customer.describe(z))
+    pass
 
 class ProductConverter(Converter):
   #Write your code here
