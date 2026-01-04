@@ -1,0 +1,6 @@
+List of sodas:
+Product - Type: soda, Name: Coca Cola, Id: G1 , Price: 1.5 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Fanta, Id: G2 , Price: 1.1 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Seven Up, Id: G3 , Price: 1.1 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Sprite, Id: G4 , Price: 1.0 , Empaque: Bottle , Material: Glass.
+Product - Type: soda, Name: Pepsi, Id: G5 , Price: 1.5 , Empaque: Bottle , Material: Glass.

@@ -41,6 +41,7 @@ class CustomerConverter(Converter):
         print(Customer.describe(z))
     pass
 
+
 class ProductConverter(Converter):
   def convert(dataFrame, numberofproducts):    
     product_list = [] 
