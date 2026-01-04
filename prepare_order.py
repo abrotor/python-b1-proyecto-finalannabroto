@@ -108,11 +108,9 @@ from util import *
 from products import *
 
 
-
 df_cashiers = CSVFileManager("data\cashiers.csv").read()
 cashier_list = CashierConverter.convert(df_cashiers)
-for z in cashier_list:
-   print(Cashier.describe(z))
+CashierConverter.print(cashier_list)
 
 
 

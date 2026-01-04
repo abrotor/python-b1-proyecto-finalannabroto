@@ -22,6 +22,9 @@ class CashierConverter(Converter):
         cashier_list.append(Cashier(name= dataFrame.at[x, 'name'], dni = dataFrame.at[x, 'dni'], age = dataFrame.at[x, 'age'], timeTable = dataFrame.at[x, 'timetable'], salary = dataFrame.at[x, 'salary']))
         x = x + 1         
     return cashier_list
+  def print(cashier_list):
+    for z in cashier_list:
+        print(Cashier.describe(cashier_list))
     pass
 
 class CustomerConverter(Converter):
