@@ -111,6 +111,9 @@ from products import *
 
 df_cashiers = CSVFileManager("data\cashiers.csv").read()
 dataFrame = df_cashiers
+cashier_list = CashierConverter.convert(df_cashiers)
+for z in cashier_list:
+   print(Cashier.describe(z))
 print(df_cashiers)
 
 
@@ -124,8 +127,8 @@ print(df_cashiers)
 #print(dataFrame.at[0, 'name'])
 #cashier_list = CashierConverter.convert(dataFrame)
 #print(cashier_list)
-for z in CashierConverter.convert(dataFrame):
-   print(Cashier.describe(z))
+#for z in CashierConverter.convert(dataFrame):
+   #print(Cashier.describe(z))
 
 #print(Cashier.describe(cashier_list))(Cashier(dni=row[1], name = row[0], age = row[2], timeTable = row[3], salary = row[4]))
 #cashier_list.append(Cashier(dni=x[1], name = x[0], age = x[2], timeTable = x[3], salary = x[4]))
