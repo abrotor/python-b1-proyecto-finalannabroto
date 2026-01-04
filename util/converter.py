@@ -43,7 +43,7 @@ class CustomerConverter(Converter):
 
 
 class ProductConverter(Converter):
-  def convert(dataFrame, numberofproducts):    
+  def convert(dataFrame, numberofproducts, product):    
     product_list = [] 
     x = 0
     for x in range (0, numberofproducts):

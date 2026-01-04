@@ -119,45 +119,35 @@ CustomerConverter.print(customers_list)
 
 
 
-class ProductConverter(Converter):
-  def convert(dataFrame, numberofproducts):    
-    product_list = [] 
-    x = 0
-    for x in range (0, numberofproducts):
-        product_list.append(product(id = dataFrame.at[x, 'id'], name = dataFrame.at[x, 'name'], price = dataFrame.at[x, 'price']))
-        x = x + 1         
-    return product_list
-  def print(product_list):
-    for z in product_list:
-        print(Product.describe(z))
+
 
 print("List of producta:")
 
 df_hamburgers = CSVFileManager("data\hamburgers.csv").read()
 product = Hamburger
 numberofhamburgers = 5
-hamburgers_list = ProductConverter.convert(df_hamburgers, numberofhamburgers, product)
+hamburgers_list = ProductConverter.convert(df_hamburgers, numberofhamburgers, Hamburger)
 print("List of hamburgers:")
 ProductConverter.print(hamburgers_list)
 
 df_happymeals = CSVFileManager("data\happyMeal.csv").read()
 product = HappyMeal
 numberofhappymeals = 3
-happymeals_list = ProductConverter.convert(df_happymeals, numberofhappymeals)
+happymeals_list = ProductConverter.convert(df_happymeals, numberofhappymeals, HappyMeal)
 print("List of Happy Meals:")
 ProductConverter.print(happymeals_list)
 
 df_drinks = CSVFileManager("data\drinks.csv").read()
 product = Drink
 numberofdrinks = 5
-drinks_list = ProductConverter.convert(df_drinks, numberofdrinks)
+drinks_list = ProductConverter.convert(df_drinks, numberofdrinks, Drink)
 print("List of drinks:")
 ProductConverter.print(drinks_list)
 
 df_drinks = CSVFileManager("data\sodas.csv").read()
 product = Soda
 numberofsodas = 5
-sodas_list = ProductConverter.convert(df_drinks, numberofsodas)
+sodas_list = ProductConverter.convert(df_drinks, numberofsodas, Soda)
 print("List of sodas:")
 ProductConverter.print(sodas_list)
 CSVFileManager.write(sodas_list, "sodas")
