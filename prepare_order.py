@@ -117,7 +117,8 @@ print("List of cashiers:")
 CashierConverter.print(cashier_list)
 
 df_customers = CSVFileManager("data\customers.csv").read()
-customers_list = CustomerConverter.convert(df_customers)
+numberofcustomers = 5
+customers_list = CustomerConverter.convert(df_customers, numberofcustomers)
 print("List of customers:")
 CustomerConverter.print(customers_list)
 
@@ -157,12 +158,20 @@ CSVFileManager.writeproducts(hamburgers_list, "hamburgers", happymeals_list, "ha
 
 # 2. Preparar una comanda.
 
-
+# identificar caixer
 
 dni_chasier = int(input('Introdueix DNI del caixer: '))
 df_caixer_a = df_cashiers[df_cashiers["dni"] == dni_chasier]
 df_caixer_a.index = [0]
 cashier = CashierConverter.convert(df_caixer_a, 1)
 CashierConverter.print(cashier)
+
+# identificar client
+
+dni_customer = int(input('Introdueix DNI del client: '))
+df_customer_a = df_customers[df_customers["dni"] == dni_customer]
+df_customer_a.index = [0]
+customer = CustomerConverter.convert(df_customer_a, 1)
+CustomerConverter.print(customer)
 
 
