@@ -107,29 +107,14 @@ from data import *
 from util import *
 from products import *
 
-from abc import ABC, abstractmethod
+
 
 df_cashiers = CSVFileManager("data\cashiers.csv").read()
 dataFrame = df_cashiers
 print(df_cashiers)
 
 
-class Converter(ABC):
-  @abstractmethod
-  def convert(self,dataFrame,*args) -> list:
-      pass 
-  def print(self, objects):
-    for item in objects:
-      print(item.describe(self, list))
-  
-class CashierConverter(Converter): 
-  def convert(dataFrame) -> list:  
-    cashier_list = [] 
-    x = 0
-    for x in range (0, 5):
-        cashier_list.append(Cashier(name= dataFrame.at[x, 'name'], dni = dataFrame.at[x, 'dni'], age = dataFrame.at[x, 'age'], timeTable = dataFrame.at[x, 'timetable'], salary = dataFrame.at[x, 'salary']))
-        x = x + 1         
-    return cashier_list
+
 #df_columnas_selectas = dataFrame[['name', 'age']]
 #print(df_columnas_selectas)
 #for x, y in dataFrame.items():
