@@ -15,8 +15,7 @@ class Converter(ABC):
       print(item.describe(self, list))
 
 class CashierConverter(Converter): 
-  def convert(self,dataFrame):    
-    self.dataFrame = dataFrame
+  def convert(dataFrame):    
     cashier_list = [] 
     x = 0
     for x in range (0, 5):
