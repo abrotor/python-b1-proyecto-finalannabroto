@@ -147,10 +147,10 @@ drinks_list = ProductConverter.convert(df_drinks, numberofdrinks, Drink)
 print("List of drinks:")
 ProductConverter.print(drinks_list)
 
-df_drinks = CSVFileManager("data\sodas.csv").read()
+df_sodas = CSVFileManager("data\sodas.csv").read()
 product = Soda
 numberofsodas = 5
-sodas_list = ProductConverter.convert(df_drinks, numberofsodas, Soda)
+sodas_list = ProductConverter.convert(df_sodas, numberofsodas, Soda)
 print("List of sodas:")
 ProductConverter.print(sodas_list)
 
@@ -173,5 +173,43 @@ df_customer_a = df_customers[df_customers["dni"] == dni_customer]
 df_customer_a.index = [0]
 customer = CustomerConverter.convert(df_customer_a, 1)
 CustomerConverter.print(customer)
+
+
+class Order:
+  def __init__(self, cashier:Cashier, customer:Customer):
+    self.cashier = cashier
+    self.customer = customer
+    self.products = []
+
+  def add(self, product : Product):
+    self.product = product
+    
+    
+    #Write your code here
+    pass
+
+  def calculateTotal(self) -> float:
+    #Write your code here
+    pass
+  
+# Mostrar productes a vendre
+ProductConverter.print(hamburgers_list)
+ProductConverter.print(happymeals_list)
+ProductConverter.print(drinks_list)
+ProductConverter.print(sodas_list)
+
+#Escollir productes
+
+df_producte = pd.concat([df_hamburgers, df_happymeals, df_drinks, df_sodas])
+
+id_producte = str(input('Introdueix l’identificador del producte: '))
+df_producte_a = df_producte[df_producte["id"] == id_producte]
+print(df_producte_a)
+df_producte_a.index = [0]
+print(df_producte_a)
+producte = ProductConverter.convert(df_producte_a, 1, product)
+ProductConverter.print(producte)
+
+
 
 
