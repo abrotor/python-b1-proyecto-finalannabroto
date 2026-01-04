@@ -24,7 +24,7 @@ class CashierConverter(Converter):
     return cashier_list
   def print(cashier_list):
     for z in cashier_list:
-        print(Cashier.describe(cashier_list))
+        print(Cashier.describe(z))
     pass
 
 class CustomerConverter(Converter):
