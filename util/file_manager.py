@@ -1,6 +1,7 @@
 import pandas as pd
 from products import *
 from users import *
+from orders import *
 
 
 class CSVFileManager:
@@ -60,7 +61,32 @@ class CSVFileManager:
       for z in sodas_list:
         f.write(Product.describe(z))
         f.write("\n")
-      
+
+  def write_order(df_caixer_a, df_customer_a, df_productes_afegits):
+    with open('order.txt','w') as f: 
+
+      dni_l = df_caixer_a['dni'].tolist()
+      dni = 0
+      for x in dni_l:
+        dni = dni + x
+      f.write("DNI del caixer : ")
+      f.write(str(dni))
+
+      f.write("\n")
+      f.write(" \n")
+
+      dni_c = df_customer_a['dni'].tolist()
+      dni = 0
+      for x in dni_c:
+        dni = dni + x
+      f.write("DNI del comprador : ")
+      f.write(str(dni))
+
+      f.write("\n")
+      f.write(" \n")
+
+      f.write("Total : ")
+      f.write(Order.calculateTotal(df_productes_afegits))
 
 
 pass

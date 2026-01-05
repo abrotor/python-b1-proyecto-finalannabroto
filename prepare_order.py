@@ -126,7 +126,7 @@ CustomerConverter.print(customers_list)
 
 CSVFileManager.writeusers(cashier_list, "cashiers", customers_list, "customer")
 
-print("List of producta:")
+print("List of products:")
 
 df_hamburgers = CSVFileManager("data\hamburgers.csv").read()
 product = Hamburger
@@ -195,7 +195,6 @@ print("Producte afegit:")
 ProductConverter.print(producte_nou)
 
 df_productes_afegits = df_producte_nou
-print(df_productes_afegits)
 more = str(input('Vols afegir un altre producte?:'))
 
 while more == "YES":
@@ -210,10 +209,7 @@ while more == "YES":
 
   more = str(input('Vols afegir un altre producte?:'))
 
-print(df_productes_afegits)
-
-print(Order.calculateTotal(df_productes_afegits))
-
+preu_total = Order.calculateTotal(df_productes_afegits)
 #Resum info: customer + cashier+productes comprats + preu total
 
 #fer llista productes afegits
@@ -224,12 +220,13 @@ for x in range(0, numberofproducts):
   index.append(x)
   x = x + 1
 df_productes_afegits.index = index
-print(df_productes_afegits)
 llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
 
 #imprimir info
 
 Order.show(cashier, customer, df_productes_afegits, llista_afegits)
+
+CSVFileManager.write_order(df_caixer_a, df_customer_a, preu_total)
 
 
 
