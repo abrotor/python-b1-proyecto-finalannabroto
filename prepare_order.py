@@ -183,17 +183,17 @@ class Order:
     self.customer = customer
     self.products = []
 
-  def add(products, df_producte_nou):
-    products = products + df_producte_nou
-
-    return products
-
-    
-    #Write your code here
+  def add(df_productes_afegits, df_producte_nou):
+    df_productes_afegits = pd.concat([df_productes_afegits, df_producte_nou])
+    return df_productes_afegits   
     pass
 
-  def calculateTotal(self) -> float:
-    #Write your code here
+  def calculateTotal(df_productes_afegits):
+    price = df_productes_afegits['price'].tolist()
+    preu_total = 0
+    for x in price:
+      preu_total = preu_total + x
+    return preu_total
     pass
   
 # Mostrar productes a vendre
@@ -211,7 +211,7 @@ id_producte = str(input('Introdueix l’identificador del producte: '))
 df_producte_nou = df_productes[df_productes["id"] == id_producte]
 df_producte_nou.index = [0]
 producte_nou = ProductConverter.convert(df_producte_nou, 1, product)
-print("producte afegit")
+print("Producte afegit:")
 ProductConverter.print(producte_nou)
 
 df_productes_afegits = df_producte_nou
@@ -223,14 +223,25 @@ while more == "YES":
   df_producte_nou = df_productes[df_productes["id"] == id_producte]
   df_producte_nou.index = [0]
   producte_nou = ProductConverter.convert(df_producte_nou, 1, product)
-  print("producte afegit")
+  print("Producte afegit:")
   ProductConverter.print(producte_nou)
 
-  df_productes_afegits = pd.concat([df_productes_afegits, df_producte_nou])
-
-  print(df_productes_afegits)
+  df_productes_afegits = Order.add(df_productes_afegits, df_producte_nou)
 
   more = str(input('Vols afegir un altre producte?:'))
+
+print("Llista productes:")
+print(df_productes_afegits)
+
+#Calcular preu
+
+preu_total = Order.calculateTotal(df_productes_afegits)
+print(preu_total)
+
+
+
+
+
 
 
 
