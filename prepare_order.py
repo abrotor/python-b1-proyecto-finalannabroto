@@ -225,10 +225,6 @@ llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts
 
 #imprimir info
 
-CashierConvert = CashierConverter
-CustomerConvert = CustomerConverter
-ProductConvert = ProductConverter
-
 Order.show(cashier, customer, df_productes_afegits, llista_afegits)
 
 CSVFileManager.write_order(df_caixer_a, df_customer_a, preu_total)
