@@ -62,7 +62,7 @@ class CSVFileManager:
         f.write(Product.describe(z))
         f.write("\n")
 
-  def write_order(df_caixer_a, df_customer_a, df_productes_afegits):
+  def write_order(df_caixer_a, df_customer_a, preu_total):
     with open('order.txt','w') as f: 
 
       dni_l = df_caixer_a['dni'].tolist()
@@ -86,7 +86,7 @@ class CSVFileManager:
       f.write(" \n")
 
       f.write("Total : ")
-      f.write(Order.calculateTotal(df_productes_afegits))
+      f.write(preu_total)
 
 
 pass
