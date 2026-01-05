@@ -198,12 +198,23 @@ class Order:
     pass
 
   def show(self):    
-    print("Hello : ") 
+    print("Hello") 
     CustomerConverter.print(customer)
+
     print("Was attended by : ")
     CashierConverter.print(cashier)
-    #for product in self.products:
-      #print(product.describe())
+
+    print("List of products : ")
+    numberofproducts = len(df_productes_afegits.index)
+    index = []
+    x = 0
+    for x in range(0, numberofproducts):
+      index.append(x)
+      x = x + 1
+    df_productes_afegits.index = index
+    llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
+    ProductConverter.print(llista_afegits)
+
     print(f"Total price : {Order.calculateTotal(df_productes_afegits)}")
   
 # Mostrar productes a vendre
@@ -240,15 +251,7 @@ while more == "YES":
 
   more = str(input('Vols afegir un altre producte?:'))
 
-print("Llista productes:")
-print(df_productes_afegits)
-
-#Calcular preu
-
-preu_total = Order.calculateTotal(df_productes_afegits)
-print(preu_total)
-
-#sHOW
+#Resum info: customer + cashier+productes comprats + preu total
 
 Order(cashier, customer, df_productes_afegits).show()
 
