@@ -86,7 +86,7 @@ class CSVFileManager:
       f.write(" \n")
 
       f.write("Total : ")
-      f.write(preu_total)
+      f.write(str(preu_total))
 
 
 pass
