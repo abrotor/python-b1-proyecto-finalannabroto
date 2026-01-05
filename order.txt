@@ -1,7 +1,0 @@
-DNI del caixer : 5001
- 
-DNI del comprador : 2001
- 
-Data i hora de la venda : 2026-01-05 21-49-43
- 
-Total : 28.3

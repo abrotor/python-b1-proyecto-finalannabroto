@@ -14,7 +14,7 @@ class CSVFileManager:
   
   
   def writeusers(cashiers_list, cashiers, customer_list, customer):
-    with open('llista_users.csv','w') as f: 
+    with open('llista_users.txt','w') as f: 
       f.write("List of users:\n")
       f.write(" \n")
       f.write("List of ")
@@ -64,7 +64,7 @@ class CSVFileManager:
         f.write("\n")
 
   def write_order(df_caixer_a, df_customer_a, preu_total):
-    with open('order.txt','w') as f: 
+    with open('order.csv','w') as f: 
 
       dni_l = df_caixer_a['dni'].tolist()
       dni = 0
