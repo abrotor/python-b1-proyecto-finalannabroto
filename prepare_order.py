@@ -106,6 +106,7 @@ from data import *
 from util import *
 from products import *
 import pandas as pd
+from orders import *
 
 # 1. Convertir a llistes d’objectes.
 
@@ -175,47 +176,6 @@ df_customer_a.index = [0]
 customer = CustomerConverter.convert(df_customer_a, 1)
 CustomerConverter.print(customer)
 
-
-class Order:
-
-  def __init__(self, cashier:Cashier, customer:Customer, df_productes_afegits):
-    self.cashier = cashier
-    self.customer = customer
-    self.df_productes_afegits = df_productes_afegits
-    self.df_productes_afegits = []
-
-  def add(df_productes_afegits, df_producte_nou) -> float:
-    df_productes_afegits = pd.concat([df_productes_afegits, df_producte_nou])
-    return df_productes_afegits   
-    pass
-
-  def calculateTotal(self):
-    price = df_productes_afegits['price'].tolist()
-    preu_total = 0
-    for x in price:
-      preu_total = preu_total + x
-    return preu_total
-    pass
-
-  def show(self):    
-    print("Hello") 
-    CustomerConverter.print(customer)
-
-    print("Was attended by : ")
-    CashierConverter.print(cashier)
-
-    print("List of products : ")
-    numberofproducts = len(df_productes_afegits.index)
-    index = []
-    x = 0
-    for x in range(0, numberofproducts):
-      index.append(x)
-      x = x + 1
-    df_productes_afegits.index = index
-    llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
-    ProductConverter.print(llista_afegits)
-
-    print(f"Total price : {Order.calculateTotal(df_productes_afegits)}")
   
 # Mostrar productes a vendre
 ProductConverter.print(hamburgers_list)
@@ -253,7 +213,7 @@ while more == "YES":
 
 #Resum info: customer + cashier+productes comprats + preu total
 
-Order(cashier, customer, df_productes_afegits).show()
+Order(cashier, customer, df_productes_afegits).show(cashier, customer, df_productes_afegits)
 
 
 
