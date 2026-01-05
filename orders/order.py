@@ -3,6 +3,7 @@ import pandas as pd
 from users import *
 from products import *
 from util import *
+from prepare_order import CustomerConvert
 
 class Order:
 
@@ -28,7 +29,7 @@ class Order:
 
   def show(cashier, customer, df_productes_afegits, llista_afegits):    
     print("Hello") 
-    CustomerConverter.print(customer)
+    CustomerConvert.print(customer)
 
     print("Was attended by : ")
     CashierConverter.print(cashier)
