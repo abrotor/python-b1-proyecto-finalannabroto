@@ -196,14 +196,12 @@ class Order:
     return preu_total
     pass
 
-  def show(self):  
-    print(CustomerConverter.print(customer))
-    #print("Hello : "+ str(CustomerConverter.print(customer)))
-    print(CashierConverter.print(cashier))
-    #print("Was attended by : "+ str(CashierConverter.print(cashier)))
+  def show(df_productes_afegits):    
+    #print("Hello : "+self.customer.describe())
+    #print("Was attended by : "+self.cashier.describe())
     #for product in self.products:
       #print(product.describe())
-    #print(f"Total price : {self.calculateTotal()}")
+    print(f"Total price : {Order.calculateTotal()}")
   
 # Mostrar productes a vendre
 ProductConverter.print(hamburgers_list)
@@ -249,7 +247,7 @@ print(preu_total)
 
 #sHOW
 
-Order(cashier, customer).show()
+#Order.show(preu_total)
 
 
 
