@@ -39,8 +39,17 @@ class Order:
       x = x + 1
     df_productes_afegits.index = index
     print(df_productes_afegits)
-    llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
-    ProductConverter.print(llista_afegits)
+    productes_afegits_list = [] 
+    x = 0
+    #for x in range(0, numberofproducts):
+      #product = Product.type()
+      #productes_afegits_list.append(product(id = df_productes_afegits[x, 'id'], name = df_productes_afegits[x, 'name'], price = df_productes_afegits[x, 'price']))
+      #x = x + 1 
+      #return productes_afegits_list
+    #for z in productes_afegits_list:
+        #print(Product.describe(z))
+    #llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
+    #ProductConverter.print(llista_afegits)
 
     print(f"Total price : {Order.calculateTotal(df_productes_afegits)}")
 
