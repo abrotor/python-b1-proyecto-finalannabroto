@@ -161,19 +161,19 @@ CSVFileManager.writeproducts(hamburgers_list, "hamburgers", happymeals_list, "ha
 
 # identificar caixer
 
-#dni_chasier = int(input('Introdueix DNI del caixer: '))
-#df_caixer_a = df_cashiers[df_cashiers["dni"] == dni_chasier]
-#df_caixer_a.index = [0]
-#cashier = CashierConverter.convert(df_caixer_a, 1)
-#CashierConverter.print(cashier)
+dni_chasier = int(input('Introdueix DNI del caixer: '))
+df_caixer_a = df_cashiers[df_cashiers["dni"] == dni_chasier]
+df_caixer_a.index = [0]
+cashier = CashierConverter.convert(df_caixer_a, 1)
+CashierConverter.print(cashier)
 
 # identificar client
 
-#dni_customer = int(input('Introdueix DNI del client: '))
-#df_customer_a = df_customers[df_customers["dni"] == dni_customer]
-#df_customer_a.index = [0]
-#customer = CustomerConverter.convert(df_customer_a, 1)
-#CustomerConverter.print(customer)
+dni_customer = int(input('Introdueix DNI del client: '))
+df_customer_a = df_customers[df_customers["dni"] == dni_customer]
+df_customer_a.index = [0]
+customer = CustomerConverter.convert(df_customer_a, 1)
+CustomerConverter.print(customer)
 
 
 class Order:
@@ -195,6 +195,15 @@ class Order:
       preu_total = preu_total + x
     return preu_total
     pass
+
+  def show(self):  
+    print(CustomerConverter.print(customer))
+    #print("Hello : "+ str(CustomerConverter.print(customer)))
+    print(CashierConverter.print(cashier))
+    #print("Was attended by : "+ str(CashierConverter.print(cashier)))
+    #for product in self.products:
+      #print(product.describe())
+    #print(f"Total price : {self.calculateTotal()}")
   
 # Mostrar productes a vendre
 ProductConverter.print(hamburgers_list)
@@ -237,6 +246,10 @@ print(df_productes_afegits)
 
 preu_total = Order.calculateTotal(df_productes_afegits)
 print(preu_total)
+
+#sHOW
+
+Order(cashier, customer).show()
 
 
 
