@@ -101,11 +101,12 @@ f.	Agregar productos: Utilizar la instancia la clase 'Order', del paso c y llama
 
 
 """
+import pandas as pd
+
 from users import *
 from data import *
 from util import *
 from products import *
-import pandas as pd
 from orders import *
 
 # 1. Convertir a llistes d’objectes.

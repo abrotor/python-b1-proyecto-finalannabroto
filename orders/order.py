@@ -1,7 +1,7 @@
 from users import *
 from products import *
-from util import *
 import pandas as pd
+from util import CustomerConverter
 
 class Order:
 
