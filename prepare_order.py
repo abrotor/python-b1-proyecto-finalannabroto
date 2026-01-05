@@ -105,6 +105,7 @@ from users import *
 from data import *
 from util import *
 from products import *
+import pandas as pd
 
 # 1. Convertir a llistes d’objectes.
 
@@ -160,19 +161,19 @@ CSVFileManager.writeproducts(hamburgers_list, "hamburgers", happymeals_list, "ha
 
 # identificar caixer
 
-dni_chasier = int(input('Introdueix DNI del caixer: '))
-df_caixer_a = df_cashiers[df_cashiers["dni"] == dni_chasier]
-df_caixer_a.index = [0]
-cashier = CashierConverter.convert(df_caixer_a, 1)
-CashierConverter.print(cashier)
+#dni_chasier = int(input('Introdueix DNI del caixer: '))
+#df_caixer_a = df_cashiers[df_cashiers["dni"] == dni_chasier]
+#df_caixer_a.index = [0]
+#cashier = CashierConverter.convert(df_caixer_a, 1)
+#CashierConverter.print(cashier)
 
 # identificar client
 
-dni_customer = int(input('Introdueix DNI del client: '))
-df_customer_a = df_customers[df_customers["dni"] == dni_customer]
-df_customer_a.index = [0]
-customer = CustomerConverter.convert(df_customer_a, 1)
-CustomerConverter.print(customer)
+#dni_customer = int(input('Introdueix DNI del client: '))
+#df_customer_a = df_customers[df_customers["dni"] == dni_customer]
+#df_customer_a.index = [0]
+#customer = CustomerConverter.convert(df_customer_a, 1)
+#CustomerConverter.print(customer)
 
 
 class Order:
@@ -210,10 +211,11 @@ id_producte = str(input('Introdueix l’identificador del producte: '))
 df_producte_nou = df_productes[df_productes["id"] == id_producte]
 df_producte_nou.index = [0]
 producte_nou = ProductConverter.convert(df_producte_nou, 1, product)
+print("producte afegit")
 ProductConverter.print(producte_nou)
-products = []
-ProductConverter.print(Order.add(products, producte_nou))
 
+df_productes_afegits = df_producte_nou
+print(df_productes_afegits)
 more = str(input('Vols afegir un altre producte?:'))
 
 while more == "YES":
@@ -221,9 +223,13 @@ while more == "YES":
   df_producte_nou = df_productes[df_productes["id"] == id_producte]
   df_producte_nou.index = [0]
   producte_nou = ProductConverter.convert(df_producte_nou, 1, product)
+  print("producte afegit")
   ProductConverter.print(producte_nou)
-  products = Order.add(products, producte_nou)
-  ProductConverter.print(Order.add(products, producte_nou))
+
+  df_productes_afegits = pd.concat([df_productes_afegits, df_producte_nou])
+
+  print(df_productes_afegits)
+
   more = str(input('Vols afegir un altre producte?:'))
 
 
