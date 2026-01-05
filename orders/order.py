@@ -39,8 +39,8 @@ class Order:
       x = x + 1
     df_productes_afegits.index = index
     print(df_productes_afegits)
-    #llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
-    #ProductConverter.print(llista_afegits)
+    llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
+    ProductConverter.print(llista_afegits)
 
     print(f"Total price : {Order.calculateTotal(df_productes_afegits)}")
 
