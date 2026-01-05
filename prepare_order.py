@@ -178,17 +178,18 @@ CustomerConverter.print(customer)
 
 class Order:
 
-  def __init__(self, cashier:Cashier, customer:Customer):
+  def __init__(self, cashier:Cashier, customer:Customer, df_productes_afegits):
     self.cashier = cashier
     self.customer = customer
-    self.products = []
+    self.df_productes_afegits = df_productes_afegits
+    self.df_productes_afegits = []
 
-  def add(df_productes_afegits, df_producte_nou):
+  def add(df_productes_afegits, df_producte_nou) -> float:
     df_productes_afegits = pd.concat([df_productes_afegits, df_producte_nou])
     return df_productes_afegits   
     pass
 
-  def calculateTotal(df_productes_afegits):
+  def calculateTotal(self):
     price = df_productes_afegits['price'].tolist()
     preu_total = 0
     for x in price:
@@ -196,12 +197,14 @@ class Order:
     return preu_total
     pass
 
-  def show(df_productes_afegits):    
-    #print("Hello : "+self.customer.describe())
-    #print("Was attended by : "+self.cashier.describe())
+  def show(self):    
+    print("Hello : ") 
+    CustomerConverter.print(customer)
+    print("Was attended by : ")
+    CashierConverter.print(cashier)
     #for product in self.products:
       #print(product.describe())
-    print(f"Total price : {Order.calculateTotal()}")
+    print(f"Total price : {Order.calculateTotal(df_productes_afegits)}")
   
 # Mostrar productes a vendre
 ProductConverter.print(hamburgers_list)
@@ -247,7 +250,7 @@ print(preu_total)
 
 #sHOW
 
-#Order.show(preu_total)
+Order(cashier, customer, df_productes_afegits).show()
 
 
 
