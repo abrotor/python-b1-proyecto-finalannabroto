@@ -14,7 +14,7 @@ class CSVFileManager:
   
   
   def writeusers(cashiers_list, cashiers, customer_list, customer):
-    with open('llista_users.txt','w') as f: 
+    with open('llista_users.csv','w') as f: 
       f.write("List of users:\n")
       f.write(" \n")
       f.write("List of ")
