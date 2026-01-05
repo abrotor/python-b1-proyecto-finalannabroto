@@ -1,4 +1,5 @@
 import pandas as pd
+from datetime import datetime
 from products import *
 from users import *
 from orders import *
@@ -81,6 +82,14 @@ class CSVFileManager:
         dni = dni + x
       f.write("DNI del comprador : ")
       f.write(str(dni))
+
+      f.write("\n")
+      f.write(" \n")
+
+      current_datetime = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
+      f.write("Data i hora de la venda : ")
+      f.write(str(current_datetime))
+      
 
       f.write("\n")
       f.write(" \n")

@@ -109,6 +109,7 @@ from util import *
 from products import *
 from orders import *
 
+
 # 1. Convertir a llistes d’objectes.
 
 print("List of users:")
