@@ -187,9 +187,6 @@ ProductConverter.print(sodas_list)
 
 df_productes = pd.concat([df_hamburgers, df_happymeals, df_drinks, df_sodas])
 
-
-
-
 id_producte = str(input('Introdueix l’identificador del producte: '))
 df_producte_nou = df_productes[df_productes["id"] == id_producte]
 df_producte_nou.index = [0]
@@ -214,12 +211,25 @@ while more == "YES":
   more = str(input('Vols afegir un altre producte?:'))
 
 print(df_productes_afegits)
-ProductConverter.llista(ProductConverter.convert(df_productes_afegits))
+
 print(Order.calculateTotal(df_productes_afegits))
 
 #Resum info: customer + cashier+productes comprats + preu total
 
-Order.show(cashier, customer, df_productes_afegits)
+#fer llista productes afegits
+numberofproducts = len(df_productes_afegits.index)
+index = []
+x = 0
+for x in range(0, numberofproducts):
+  index.append(x)
+  x = x + 1
+df_productes_afegits.index = index
+print(df_productes_afegits)
+llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
+
+#imprimir info
+
+Order.show(cashier, customer, df_productes_afegits, llista_afegits)
 
 
 
