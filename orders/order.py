@@ -15,7 +15,7 @@ class Order:
     return df_productes_afegits   
     pass
 
-  def calculateTotal(self, df_productes_afegits):
+  def calculateTotal(df_productes_afegits):
     price = df_productes_afegits['price'].tolist()
     preu_total = 0
     for x in price:
@@ -23,7 +23,7 @@ class Order:
     return preu_total
     pass
 
-  def show(self, cashier, customer, df_productes_afegits):    
+  def show(cashier, customer, df_productes_afegits):    
     print("Hello") 
     CustomerConverter.print(customer)
 
@@ -38,6 +38,7 @@ class Order:
       index.append(x)
       x = x + 1
     df_productes_afegits.index = index
+    print(df_productes_afegits)
     #llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
     #ProductConverter.print(llista_afegits)
 
