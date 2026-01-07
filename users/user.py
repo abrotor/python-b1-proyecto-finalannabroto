@@ -1,5 +1,7 @@
+#Importar modul abc.
 from abc import ABC, abstractmethod
 
+#Crear classe abstracta user amb metode abstracte describe.
 class User(ABC):
   def __init__(self,dni:str,name:str,age:int):
     self.dni = dni
@@ -10,12 +12,12 @@ class User(ABC):
   def describe(self):
       pass
 
+#Crear classe Cashier i Customer amb metode describe.
 class Cashier(User): 
   def __init__(self,dni:str,name:str,age:int,timeTable:str,salary:float):
     super().__init__(dni,name,age)
     self.timeTable = timeTable
     self.salary = salary
-    #Write your code here
     pass      
  
   def describe(self):
@@ -26,7 +28,6 @@ class Customer(User):
     super().__init__(dni,name,age)
     self.email = email
     self.postalCode = postalCode
-    #Write your code here
     pass
 
   def describe(self):
