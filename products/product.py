@@ -1,9 +1,9 @@
-#Importar modul abc.
+# Importar mòdul abc.
 from abc import ABC, abstractmethod
-#Importa informació dels paquet products.
+# Importa informació del paquet products.
 from products import *
 
-#Crear classe abstracte Product amb metode define, type i FoodPackage.
+# Crear classe abstracte Product amb mètode describe, type i FoodPackage.
 class Product(ABC):
     def __init__(self,id:str,name:str,price:float):
       self.id = id
@@ -20,7 +20,7 @@ class Product(ABC):
     def foodPackage(self)->FoodPackage:
         pass  
 
-#Crear classes Hamburger, Soda, Drink i HappyMeal amb metodes type i foodPackage.
+# Crear classes Hamburger, Soda, Drink i HappyMeal amb mètodes type i foodPackage.
 class Hamburger(Product):
     def __init__(self,id:str,name:str,price:float):
         super().__init__(id,name,price)

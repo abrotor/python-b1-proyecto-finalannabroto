@@ -4,16 +4,16 @@ from products import *
 from users import *
 from orders import *
 
-#Crear classe CVFileManager amb funcions read i write.
+# Crear classe CVFileManager amb funcions read i write.
 class CSVFileManager:
   def __init__(self,path: str):
     self.path = path
 
-  #Llegeix dades de csv i les converteix en un Panda DataFrame.
+  # Llegeix dades de csv i les converteix en un Panda DataFrame.
   def read(self) -> str:
     return pd.read_csv(self.path) 
   
-  # Les funcions writeusers, writeproducts i write_order creen fitxers txt i escriuen la informacio dels users i dels products utilitzant les funcions describe previament descrites.
+  # Les funcions writeusers i writeproducts creen fitxers txt i escriuen la informació dels users i dels products utilitzant les funcions describe prèviament descrites.
   def writeusers(cashiers_list, cashiers, customer_list, customer):
     with open('llista_users.txt','w') as f: 
       f.write("List of users:\n")
@@ -64,16 +64,17 @@ class CSVFileManager:
         f.write(Product.describe(z))
         f.write("\n")
 
-  #La funcio write_order escriu un resum de la informació de la comanda en un fitxer csv.
+  # La funció write_order escriu un resum de la informació de la comanda en un fitxer csv.
   def write_order(df_caixer_a, df_customer_a, preu_total):
-    #Obrir fitxer order.csv
+    # Obrir fitxer order.csv
     with open('order.csv','w') as f: 
-      #Escriure DNI caixer
+
+      # Escriure DNI caixer
       # 1. Crea llita amb dni del caixer.
       dni_l = df_caixer_a['dni'].tolist()
       # 2. Iniciar variable dni.
       dni = 0
-      # 3. guardar dni a la variable dni.
+      # 3. Guardar dni a la variable dni.
       for x in dni_l:
         dni = dni + x
       # 4. Escriure variable al fitxer.
@@ -83,7 +84,7 @@ class CSVFileManager:
       f.write("\n")
       f.write(" \n")
 
-      #Escriure DNI client (analog al dni caixer).
+      # Escriure DNI client (anàleg al dni caixer).
       dni_c = df_customer_a['dni'].tolist()
       dni = 0
       for x in dni_c:
@@ -94,7 +95,7 @@ class CSVFileManager:
       f.write("\n")
       f.write(" \n")
 
-      #Escriure data i ora en la que s'ha fet la comanda.
+      # Escriure data i hora en la qual s'ha fet la comanda.
       current_datetime = datetime.now().strftime("%Y-%m-%d %H-%M-%S")
       f.write("Data i hora de la venda : ")
       f.write(str(current_datetime))
@@ -102,7 +103,7 @@ class CSVFileManager:
       f.write("\n")
       f.write(" \n")
 
-      #Escriure preu total.
+      # Escriure preu total.
       f.write("Total : ")
       f.write(str(preu_total))
 

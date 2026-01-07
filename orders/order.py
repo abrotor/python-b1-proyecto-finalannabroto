@@ -1,11 +1,11 @@
-#Importar llibreria panda.
+# Importar llibreria panda.
 import pandas as pd
-#Importar informació dels paquests users, products i util.
+# Importar informació dels paquets users, products i util.
 from users import *
 from products import *
 from util import *
 
-#Crear classe amb diferents funcions per crear comandes.
+# Crear classe Order amb diferents funcions per crear comandes.
 
 class Order:
 
@@ -16,26 +16,26 @@ class Order:
     self.df_productes_afegits = []
     self.llista_afegits = llista_afegits
 
-# La funcio add afagieix un nou producte al dataFrame format pels productes ja afegits i retaorna el nou dataFrame amb el nou producte afegit.
+# La funció add afegeix un nou producte al dataFrame format pels productes ja afegits i retorna un nou dataFrame amb el nou producte afegit.
   def add(df_productes_afegits, df_producte_nou) -> float:
     df_productes_afegits = pd.concat([df_productes_afegits, df_producte_nou])
     return df_productes_afegits   
     pass
 
-  # La funcio calcilateTotal calcula el preu de la comanda.
+  # La funció calcilateTotal calcula el preu de la comanda.
   def calculateTotal(df_productes_afegits):
-    #1. Fa una llista amb els preus de tots els productes afegits.
+    # 1. Fa una llista amb els preus de tots els productes afegits.
     price = df_productes_afegits['price'].tolist()
-    #2. Summa cada preu a la variable preu_total.
+    # 2. Summa cada preu a la variable preu_total.
     preu_total = 0
     for x in price:
       preu_total = preu_total + x
     return preu_total
     pass
 
-  # La funcio sow mostra un resum de la informació de la comanda.
+  # La funció show mostra un resum de la informació de la comanda.
   def show(cashier, customer, df_productes_afegits, llista_afegits):
-    #1. Utilitzant la funcio converter imprimeix la informació del client, el caixer i els productes de la comanda.  
+    # 1. Utilitzant la funció converter imprimeix la informació del client, el caixer i els productes de la comanda.  
     print("Hello") 
     CustomerConverter.print(customer)
 
@@ -45,7 +45,7 @@ class Order:
     print("List of products : ")
     ProductConverter.print(llista_afegits)
 
-    #2. Utilitzant la funcio calculateTotal imprimeix el preu total de la comanda.
+    # 2. Utilitzant la funció calculateTotal imprimeix el preu total de la comanda.
     print(f"Total price : {Order.calculateTotal(df_productes_afegits)}")
 
 

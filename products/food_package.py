@@ -1,7 +1,7 @@
-#Importar modul abc.
+# Importar mòdul abc.
 from abc import ABC, abstractmethod
 
-#Crear classe abstracte FoodPackage amb metode pack, material i describe.
+# Crear classe abstracta FoodPackage amb mètode pack, material i describe.
 class FoodPackage(ABC): 
     @abstractmethod
     def pack(self)  -> str:
@@ -12,7 +12,7 @@ class FoodPackage(ABC):
     def describe(self):
         return f"Empaque: {self.pack()} , Material: {self.material()}"    
     
-#Crear classes Warpping, Bottle, Glass i Box amb metodes pack i material.
+# Crear classes Warpping, Bottle, Glass i Box amb mètodes pack i material.
 class Wrapping(FoodPackage):  
   def pack(self):
     return "Food Wrap Paper" 
