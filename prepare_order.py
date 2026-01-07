@@ -101,8 +101,9 @@ f.	Agregar productos: Utilizar la instancia la clase 'Order', del paso c y llama
 
 
 """
+#Importar llibreria panda.
 import pandas as pd
-
+#Importar informació dels paquests users, products, util i orders.
 from users import *
 from data import *
 from util import *
@@ -110,7 +111,7 @@ from products import *
 from orders import *
 
 
-# 1. Convertir a llistes d’objectes.
+# 1. Convertir informacio fitxers csv a llistes d’objectes utilitzant funcio read de CSVFileManager i funcions convert i print de Converter.
 
 print("List of users:")
 
@@ -162,15 +163,19 @@ CSVFileManager.writeproducts(hamburgers_list, "hamburgers", happymeals_list, "ha
 
 # 2. Preparar una comanda.
 
-# identificar caixer
+# Identificar caixer
 
+# 1. Demanar que ingrodueixin dni del caixer i guardar-lo a dni_chasier.
 dni_chasier = int(input('Introdueix DNI del caixer: '))
+# 2. Crear dataFrame nomes amb la indormacio del caixer amb el dni introduit.
 df_caixer_a = df_cashiers[df_cashiers["dni"] == dni_chasier]
+# 3. Canviar index del caixer a 0.
 df_caixer_a.index = [0]
+# 4. Utillitzar Converter per fer llista amb unfo caixer i imprimir-la.
 cashier = CashierConverter.convert(df_caixer_a, 1)
 CashierConverter.print(cashier)
 
-# identificar client
+# Identificar client (analeg a identificar caixer)
 
 dni_customer = int(input('Introdueix DNI del client: '))
 df_customer_a = df_customers[df_customers["dni"] == dni_customer]
@@ -179,26 +184,34 @@ customer = CustomerConverter.convert(df_customer_a, 1)
 CustomerConverter.print(customer)
 
   
-# Mostrar productes a vendre
+# Mostrar productes a vendre (imprimir tots els productes disponibles utilitzant ProductConverter).
 ProductConverter.print(hamburgers_list)
 ProductConverter.print(happymeals_list)
 ProductConverter.print(drinks_list)
 ProductConverter.print(sodas_list)
 
-#Escollir productes
+#Escollir productes.
 
+# 1. Fer dataFrame amb tots els productes disponibles.
 df_productes = pd.concat([df_hamburgers, df_happymeals, df_drinks, df_sodas])
 
+# 2. Demanar quin producte es vol afegir a la comanda.
 id_producte = str(input('Introdueix l’identificador del producte: '))
+# 3. Crear dataFrame nomes amb el producte afegit (exragent del df_products el producte que coincideixi amb el id introduit.)
 df_producte_nou = df_productes[df_productes["id"] == id_producte]
+# 4. Canviar index del dataframe a 0.
 df_producte_nou.index = [0]
+# 5. Converir i imprimir la info del producte afegit.
 producte_nou = ProductConverter.convert(df_producte_nou, 1, product)
 print("Producte afegit:")
 ProductConverter.print(producte_nou)
 
+# 6. Crear dataframe on s'aniran guardant els productes afegits i afegirhi el producte nou.
 df_productes_afegits = df_producte_nou
+# 7. Preguntar si es volen afegir mes productes.
 more = str(input('Vols afegir un altre producte?:'))
 
+# 8. Mentre la resposta sigui si anar repetint el seguent bucle whiele on es torna a preguntar quin producte es vol afecir, es torna a identificar i s'afageix a la llista de productes.
 while more == "YES":
   id_producte = str(input('Introdueix l’identificador del producte: '))
   df_producte_nou = df_productes[df_productes["id"] == id_producte]
@@ -211,22 +224,34 @@ while more == "YES":
 
   more = str(input('Vols afegir un altre producte?:'))
 
+# 9. Calcular preu total dels productes afecits utilitzant funcio calculateTotal previament definida.
 preu_total = Order.calculateTotal(df_productes_afegits)
-#Resum info: customer + cashier+productes comprats + preu total
 
-#fer llista productes afegits
+
+# Resum info: customer + cashier+productes comprats + preu total
+
+# 1. Fer llista productes afegits.
+
+#Canviar index dataFrame per nous index.
+# a. Determinar quants productes hi ha a la llista
 numberofproducts = len(df_productes_afegits.index)
+# b. crear llista buida on es gradaran els nous index
 index = []
 x = 0
+# c. crear llista amb nous index.
 for x in range(0, numberofproducts):
   index.append(x)
   x = x + 1
+# d. canviar index dataframe productes afecits per 0,1,2,...
 df_productes_afegits.index = index
+# c. convertir info dataframe productes afegits en llista
 llista_afegits = ProductConverter.convert(df_productes_afegits, numberofproducts, product)
 
-#imprimir info
+# 2. Imprimir info. Utilitzar funcio previament definida show per imprimir resum comanda.
 
 Order.show(cashier, customer, df_productes_afegits, llista_afegits)
+
+# Escriure fitxar cvs amb resum comanda. Utilitzar funcio previament definida write_order.
 
 CSVFileManager.write_order(df_caixer_a, df_customer_a, preu_total)
 
